@@ -6,7 +6,10 @@ from pathlib import Path
 
 from models.app.params import get_params
 from models.app.img_display import img_to_bytes
+from models.app.params import get_params
 import models.app.SessionState as SessionState
+
+from models.transformer.loader import etl
 
 def local_css(file_name):
     with open(Path(file_name)) as f:
@@ -24,58 +27,27 @@ def main():
     session_state = SessionState.get(search=False, end_date='', start_date='', query_selector='', source_selector=[], limit='', ig_tag='', tt_query='', params={})
     
     if session_state.search == False:
-        # Input section
-        # The term to be searched for
-        session_state.query_selector = st.text_input('O que você quer saber mais sobre?', 'Nova Strada')
-        # The sources to search te term from
-        session_state.source_selector = st.multiselect('Selecione as fontes', ['Instagram', 'Twitter'])
-
-        # Display Instagram info
-        if 'Instagram' in session_state.source_selector:
-            st.info(f'O termo {session_state.query_selector} será pesquisado como uma hashtag (#) no Instagram.')
-        
-        # Display Twitter info and exclusive parameters
-        if 'Twitter' in session_state.source_selector:
-            # Start date
-            session_state.start_date = st.date_input("Data de início", datetime.date(2019, 7, 30))
-            # End date
-            session_state.end_date = st.date_input("Data de término", datetime.date.today())
-            st.info('Os campos de data só funcionam para filtrar informações do Twitter.')
-
-        # Max number of posts to gather from each social media
-        session_state.limit = st.slider("Qual o número máximo de posts que você quer buscar? (Quanto maior o número, mais tempo leva para rodar.)", 1, 500, 250, 10)
-
-        session_state.ig_tag = session_state.query_selector.replace(' ', '').lower()
-        session_state.tt_query = session_state.query_selector
-
-    if session_state.source_selector != []:
-        search = st.button('pesquisar')
+       session_state.params = get_params()
+    
+    if session_state.params['sources'] != []:
+        search = st.button('Autalizar base')
         if search:
            session_state.search = True
 
-    session_state.params = {
-        'sources': session_state.source_selector,
-        'limit': session_state.limit,
-        'ig_tag': session_state.ig_tag,
-        'tt_query': session_state.tt_query,
-        'stdt': session_state.start_date,
-        'endt': session_state.end_date,
-    }
-    
-    link = f"<a href='http://52.201.220.9:8502' target='_self'>Explore</a>"
-
     if session_state.search:
+        st.write(session_state.params)
         with st.spinner("Aguarde, minerando dados e atualizando base..."):
             time.sleep(1)
         
-        # TODO --> Add Twitter query here
-        # TODO --> Add Instagram query here
-        # TODO --> Add data cleaning process here
-        # TODO --> Add data merging and database loading here
+        etl(session_state.params)
 
         st.success(f"Done! Base de dados atualizada com os posts mais recentes sobre {session_state.params['tt_query']}. ")
         st.balloons()
-        st.markdown(link, unsafe_allow_html=True)        
+        
+        # TODO --> Pass the params as the URL query to the explorer view
+        link = f"<a href='http://52.201.220.9:8502' target='_self'>Explore</a>"
+        st.markdown(link, unsafe_allow_html=True)     
+
     session_state.search = False
     
     st.markdown('-'*7)
