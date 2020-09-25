@@ -5,3 +5,4 @@ GetOldTweets3
 -e git+https://github.com/rennanharo/instagram-scraper#egg=instagram-scraper
 matplotlib
 wordcloud
+config-parser
