@@ -65,11 +65,19 @@ def main():
     link = f"<a href='http://52.201.220.9:8502' target='_self'>Explore</a>"
 
     if session_state.search:
+        with st.spinner("Aguarde, minerando dados e atualizando base..."):
+            time.sleep(1)
+        
+        # TODO --> Add Twitter query here
+        # TODO --> Add Instagram query here
+        # TODO --> Add data cleaning process here
+        # TODO --> Add data merging and database loading here
+
+        st.success(f"Done! Base de dados atualizada com os posts mais recentes sobre {session_state.params['tt_query']}. ")
+        st.balloons()
         st.markdown(link, unsafe_allow_html=True)        
     session_state.search = False
     
-
-
     st.markdown('-'*7)
     st.markdown("""
                     You can check the [source code here.](https://github.com/rennanharo/overviewer)\n
