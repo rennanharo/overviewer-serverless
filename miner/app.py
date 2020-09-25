@@ -35,7 +35,6 @@ def main():
            session_state.search = True
 
     if session_state.search:
-        st.write(session_state.params)
         with st.spinner("Aguarde, minerando dados e atualizando base..."):
             time.sleep(1)
         
@@ -44,7 +43,6 @@ def main():
         st.success(f"Done! Base de dados atualizada com os posts mais recentes sobre {session_state.params['tt_query']}. ")
         st.balloons()
         
-        # TODO --> Pass the params as the URL query to the explorer view
         link = f"<a href='http://52.201.220.9:8502' target='_self'>Explore</a>"
         st.markdown(link, unsafe_allow_html=True)     
 
