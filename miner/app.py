@@ -15,7 +15,7 @@ local_css("miner/assets/style.css")
 
 def main():
     # Logo
-    header_html = "<img src='data:image/png;base64,{}' class='home-logo'>".format(img_to_bytes("miner/assets/files/Logo_Fiat_Chrysler_Automobiles.png"))
+    header_html = "<img src='data:image/png;base64,{}' class='home-logo'>".format(img_to_bytes("global_assets/files/Logo_Fiat_Chrysler_Automobiles.png"))
     st.markdown(header_html, unsafe_allow_html=True)
 
     # Main header
