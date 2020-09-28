@@ -26,6 +26,11 @@ def main():
 
     session_state = SessionState.get(search=False, end_date='', start_date='', sources=[], models=[], flags=[], selectors={})
 
+    if session_state.search == False:
+        st.markdown("""
+            Comece customizando o seu filtro no painel à esqueda.
+        """)
+
     session_state.selectors = filters()
     
     session_state.sources = st.sidebar.multiselect('Quais fontes você está buscando?', session_state.selectors['sources'])
@@ -55,10 +60,14 @@ def main():
     if session_state.search == True:
         df = query(params['sources'], params['models'], params['stdate'], params['endate'])  
 
-    visuals = ['Núvem de palavras', 'Tabela']
-    visual = st.selectbox('Qual visualização você quer renderizar?', visuals)
+        visuals = ['Núvem de palavras', 'Tabela']
+        visual = st.selectbox('Qual visualização você quer renderizar?', visuals)
 
-    session_state.search = False
+        if visual == 'Núvem de palavras':
+            st.write('wordcloud')
+        if visual == 'Tabela':
+            st.write('Tabela')
+
 
 if __name__ == "__main__":
     main()

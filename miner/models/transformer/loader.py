@@ -11,10 +11,9 @@ from models.extraction.instagram.get_posts import get_posts
 from models.extraction.twitter.get_tweets import get_tweets
 
 config = configparser.ConfigParser()
-config.read("miner/assets/etc/secrets.py")
+config.read("../global_assets/etc/secrets.py")
 
 def etl(params):
-  
   #insta
   insta_df = get_posts(params)
   insta_df = clean_insta(insta_df, 'Instagram', params['ig_tag'])
