@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-30T12:46:11.353Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15" etag="a51O3DTbGKyna3qBgSHh" version="13.7.5" type="github">
+<mxfile host="app.diagrams.net" modified="2020-09-30T12:52:43.892Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15" etag="yL0_dIN99kkbr70qduwD" version="13.7.5" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="1244" dy="817" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -100,6 +100,9 @@
         </mxCell>
         <mxCell id="kR1uNBJ5zPGEUxJ8ohtR-40" value="Merger" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
           <mxGeometry x="400.5" y="610" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="kR1uNBJ5zPGEUxJ8ohtR-55" value="Norm." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+          <mxGeometry x="400.5" y="590" width="50" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
