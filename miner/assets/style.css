@@ -1,4 +1,4 @@
-/*header .decoration {
+/* header .decoration {
     position: absolute;
     top: 0;
     right: 0;
@@ -8,8 +8,8 @@
     background-image: -webkit-linear-gradient(left,#003366,#0066cc);
     background-image: linear-gradient(90deg,#003366,#0066cc);
     z-index: 120;
-}
-*/
+} */
+
 /*Sidebar toggle*/
 .btn-outline-info:not(:disabled):not(.disabled):focus, .btn-outline-info:not(:disabled):not(.disabled):hover, .btn-outline-primary:not(:disabled):not(.disabled):focus, .btn-outline-primary:not(:disabled):not(.disabled):hover, .btn-outline-secondary:not(:disabled):not(.disabled):focus, .btn-outline-secondary:not(:disabled):not(.disabled):hover {
     background-color: #fff;
@@ -42,19 +42,29 @@ footer {
   text-align: center;
   color: #333
 }
-/*
-.st-bs {
+
+/* .st-dx {
 border-bottom-color: #0066cc;
 }
-.st-br {
+.st-dw {
     border-top-color: #0066cc;
 }
-.st-bq {
+.st-dv {
     border-right-color: #0066cc;
 }
-.st-bp {
+.st-du {
     border-left-color: #0066cc;
-}
+} */
+/* .st-d9 {
+    background-color: #0066cc;
+} */
+/* .st-f9:hover {
+    background-color: #0066cc;
+} */
+/* .st-fa:hover {
+    background-color: #0066cc;
+} */
+/*
 .st-f7:hover {
     color: rgb(0,102,204);
 }
