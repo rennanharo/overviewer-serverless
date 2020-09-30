@@ -14,10 +14,9 @@ def clean_insta(df, source, term):
         for flag in flags:
             if flag in s:
                 return 1
-            else:
-                return 0
 
     df["flags"] = df["comments"].apply(assign_flags)
+    df['flags'].fillna(0, inplace=True)
     df.dropna(inplace=True)
 
     return df
